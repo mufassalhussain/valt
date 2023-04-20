@@ -1,12 +1,17 @@
-The valt library provides a simple way to save and retrieve values from local storage using AES encryption in a Flutter app. Here's how you can use this library:
 
-Add valt as a dependency in your pubspec.yaml file:
+# Auto HTTP Request
+
+Valt is a Flutter plugin that enables easy reading and writing of simple key-value pairs with AES encryption for secure local storage. 
+
+Here's how you can use this library:
+
+Add valt as a dependency in your `pubspec.yaml` file:
 ```
 dependencies:
-  valt: ^0.0.1+1
+  valt: ^0.0.1+2
 ```
 
-Import the valt library:
+Import the `valt` library:
 
 ```
 import 'package:valt/valt.dart';

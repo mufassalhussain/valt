@@ -1,4 +1,4 @@
-## Version 0.0.1+1 (Release date: 20-04-2023)
+## Version 0.0.1+2 (Release date: 20-04-2023)
 
 - Initial release of the Valt library
 - Added support for saving and retrieving values from local storage using AES encryption
