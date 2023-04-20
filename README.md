@@ -1,5 +1,5 @@
 
-# Auto HTTP Request
+# Valt
 
 Valt is a Flutter plugin that enables easy reading and writing of simple key-value pairs with AES encryption for secure local storage. 
 
@@ -8,7 +8,7 @@ Here's how you can use this library:
 Add valt as a dependency in your `pubspec.yaml` file:
 ```
 dependencies:
-  valt: ^0.0.1+2
+  valt: ^0.0.1+3
 ```
 
 Import the `valt` library:
