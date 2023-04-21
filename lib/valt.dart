@@ -19,15 +19,13 @@ class Valt {
   static Directory? _directory;
 
   /// Returns the local path of the app's documents directory as a Future<String>.
-
   static Future<String> get _localPath async {
     if (_directory != null) {
       return _directory!.path;
     }
 
     _directory = await getApplicationDocumentsDirectory();
-    final dirPath =
-        '${_directory!.path}/valt_library'; // specify the folder name
+    final dirPath = '${_directory!.path}'; // specify the folder name
     final dir = Directory(dirPath);
     if (!dir.existsSync()) {
       await dir.create(recursive: true);
@@ -38,7 +36,7 @@ class Valt {
   /// Returns a File object with the given key as part of its name as a Future<File>.
   static Future<File> _getFile(String key) async {
     final path = await _localPath;
-    return File('$path/${_encryptKey(key)}.txt');
+    return File('$path/${_encryptKey(key)}valt_path.txt');
   }
 
   /// Stores a value of any data type to local storage with the given key using JSON encoding and encryption.
@@ -250,10 +248,10 @@ class Valt {
     try {
       final directory = await getApplicationDocumentsDirectory();
       final dirPath = directory.path;
-      final dir = Directory('$dirPath/valt_library');
+      final dir = Directory('$dirPath');
       final contents = dir.listSync();
       for (var fileOrDir in contents) {
-        if (fileOrDir is File && fileOrDir.path.endsWith('.txt')) {
+        if (fileOrDir is File && fileOrDir.path.endsWith('valt_path.txt')) {
           await fileOrDir.delete();
         }
       }

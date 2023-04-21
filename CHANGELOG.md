@@ -1,3 +1,6 @@
+## Version 0.0.3+1 (Release date: 21-04-2023)
+- Bug fixes (stable)
+
 ## Version 0.0.2+1 (Release date: 21-04-2023)
 - Added a way of storing Map<String, dynamic>
 - Added `set` and `get` methods for storing and retrieving any type of value
