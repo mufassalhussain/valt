@@ -16,12 +16,18 @@ class Valt {
   static final _keyBytes = utf8.encode(String.fromCharCodes(_key));
   static final _encrypter =
       Encrypter(AES(Key(Uint8List.fromList(_keyBytes)), mode: AESMode.cbc));
+  static Directory? _directory;
 
   /// Returns the local path of the app's documents directory as a Future<String>.
 
   static Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
-    final dirPath = '${directory.path}/valt_library'; // specify the folder name
+    if (_directory != null) {
+      return _directory!.path;
+    }
+
+    _directory = await getApplicationDocumentsDirectory();
+    final dirPath =
+        '${_directory!.path}/valt_library'; // specify the folder name
     final dir = Directory(dirPath);
     if (!dir.existsSync()) {
       await dir.create(recursive: true);
@@ -33,6 +39,36 @@ class Valt {
   static Future<File> _getFile(String key) async {
     final path = await _localPath;
     return File('$path/${_encryptKey(key)}.txt');
+  }
+
+  /// Stores a value of any data type to local storage with the given key using JSON encoding and encryption.
+  /// Returns true if the operation was successful, and false otherwise.
+  static Future<bool> set(String key, value) async {
+    try {
+      final file = await _getFile(key);
+      final jsonString = jsonEncode(value);
+      final encryptedValue = _encryptValue(jsonString);
+      await file.writeAsString(encryptedValue);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /// Retrieves the encrypted value associated with the given key from local storage using getString(),
+  /// decodes it from base64, and returns the decoded value as an object of the specified data type.
+  /// Returns null if the operation failed.
+  static Future<dynamic> get(String key) async {
+    try {
+      final file = await _getFile(key);
+      final contents = await file.readAsString();
+      final decryptedValue = _decryptValue(contents);
+      final dynamicValue = jsonDecode(decryptedValue);
+      final typedValue = dynamicValue;
+      return typedValue;
+    } catch (e) {
+      return null;
+    }
   }
 
   /// Encrypts the given value using AES encryption and saves it to local storage with the given key.
@@ -78,6 +114,35 @@ class Valt {
       return intValue == 1;
     }
     return null;
+  }
+
+  /// Converts the given Map<String, dynamic> value to a JSON-encoded string, encrypts it using AES encryption,
+  /// and saves it to local storage with the given key. Returns true if the operation was successful,
+  /// and false otherwise.
+  static Future<bool> setMap(String key, Map<String, dynamic> value) async {
+    try {
+      final file = await _getFile(key);
+      final jsonString = jsonEncode(value);
+      final encryptedValue = _encryptValue(jsonString);
+      await file.writeAsString(encryptedValue);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /// Retrieves the encrypted value associated with the given key from local storage using getString(),
+  /// decodes it from base64, and returns the decoded value as a Map<String, dynamic>. Returns null if the operation failed.
+  static Future<Map<String, dynamic>?> getMap(String key) async {
+    try {
+      final file = await _getFile(key);
+      final contents = await file.readAsString();
+      final decryptedValue = _decryptValue(contents);
+      final dynamicMap = jsonDecode(decryptedValue) as Map<String, dynamic>;
+      return dynamicMap;
+    } catch (e) {
+      return null;
+    }
   }
 
   static Future<double?> getDouble(String key) async {

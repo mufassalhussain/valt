@@ -1,5 +1,9 @@
-## Version 0.0.1+3 (Release date: 20-04-2023)
+## Version 0.0.2+1 (Release date: 21-04-2023)
+- Added a way of storing Map<String, dynamic>
+- Added `set` and `get` methods for storing and retrieving any type of value
+- Fixed some bugs
 
+## Version 0.0.1+3 (Release date: 20-04-2023)
 - Initial release of the Valt library
 - Added support for saving and retrieving values from local storage using AES encryption
 - Implemented a simple key-value pair API for easy data management
