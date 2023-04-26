@@ -10,7 +10,7 @@ Supported data types are `int`, `double`, `bool`, `String`, `Map<dynamic>` and `
 Add valt as a dependency in your `pubspec.yaml` file:
 ```
 dependencies:
-  valt: ^0.0.3+1
+  valt: ^0.0.4
 ```
 
 Import the `valt` library:
