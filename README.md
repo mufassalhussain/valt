@@ -5,12 +5,12 @@ Valt is a Flutter plugin that enables easy reading and writing of simple key-val
 
 Here's how you can use this library:
 
-Supported data types are `int`, `double`, `bool`, `String`, `Map<dynamic>` and `List<dynamic>`.
+Supported data types are `int`, `double`, `bool`, `String`, `List<dynamic>` and `Map<dynamic>`.
 
 Add valt as a dependency in your `pubspec.yaml` file:
 ```
 dependencies:
-  valt: ^0.0.4+1
+  valt: ^0.0.4+2
 ```
 
 Import the `valt` library:
