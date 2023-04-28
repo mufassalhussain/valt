@@ -1,3 +1,8 @@
+## Version 0.0.4+2 (Release date: 28-04-2023)
+- Fixed a bug that caused data loss when saving values.
+- Optimized storage efficiency, reducing the amount of storage space required by the library.
+- Conducted further testing and performance optimization.
+
 ## Version 0.0.4+1 (Release date: 26-04-2023)
 - Added support for web
 - Fixed minor bugs and issues discovered during testing on web platform
