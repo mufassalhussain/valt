@@ -1,4 +1,4 @@
-## Version 0.0.4 (Release date: 26-04-2023)
+## Version 0.0.4+1 (Release date: 26-04-2023)
 - Added support for web
 - Fixed minor bugs and issues discovered during testing on web platform
 - Updated documentation to reflect the new web support

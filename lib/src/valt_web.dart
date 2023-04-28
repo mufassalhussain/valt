@@ -1,8 +1,8 @@
 import 'dart:convert';
+import 'dart:html';
 import 'dart:typed_data';
 import 'package:crypto/crypto.dart';
 import 'package:encrypt/encrypt.dart';
-import 'package:universal_html/html.dart';
 
 /// This class provides methods for storing and retrieving values from local storage. Values are encrypted
 /// using AES encryption, and can be of type String, bool, int, double, or List<dynamic>. Values are
