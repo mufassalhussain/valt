@@ -44,7 +44,7 @@ class Valt {
       final file = await _getFile(key);
       final jsonString = jsonEncode(value);
       final encryptedValue = _encryptValue(jsonString);
-      await file.writeAsString(encryptedValue);
+      await file.writeAsString(encryptedValue, flush: true);
       return true;
     } catch (e) {
       return false;
@@ -73,7 +73,7 @@ class Valt {
     try {
       final file = await _getFile(key);
       final encryptedValue = _encryptValue(value);
-      await file.writeAsString(encryptedValue);
+      await file.writeAsString(encryptedValue, flush: true);
       return true;
     } catch (e) {
       return false;
@@ -120,7 +120,7 @@ class Valt {
       final file = await _getFile(key);
       final jsonString = jsonEncode(value);
       final encryptedValue = _encryptValue(jsonString);
-      await file.writeAsString(encryptedValue);
+      await file.writeAsString(encryptedValue, flush: true);
       return true;
     } catch (e) {
       return false;
@@ -166,7 +166,7 @@ class Valt {
       final file = await _getFile(key);
       final jsonString = jsonEncode(values);
       final encryptedValue = _encryptValue(jsonString);
-      await file.writeAsString(encryptedValue);
+      await file.writeAsString(encryptedValue, flush: true);
       return true;
     } catch (e) {
       return false;
@@ -208,7 +208,7 @@ class Valt {
     try {
       final file = await _getFile(key);
       final encryptedValue = _encryptInt(value);
-      await file.writeAsBytes(encryptedValue);
+      await file.writeAsBytes(encryptedValue, flush: true);
       return true;
     } catch (e) {
       return false;
