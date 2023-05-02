@@ -51,6 +51,42 @@ class Valt {
     }
   }
 
+  /// This is a static method that takes in a Map of key-value pairs and attempts to set the values
+  /// using the set() method. The method loops through each key-value pair and awaits the set() method
+  /// for each iteration. If any exception is caught during the loop, the method returns false.
+  /// Otherwise, the method returns true to indicate that all values were successfully set.
+
+  static Future<bool> setMultiValues(Map<String, dynamic> values) async {
+    try {
+      for (final key in values.keys) {
+        final value = values[key];
+        await set(key, value);
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /// This is a static method for getting multiple values from a cache storage.
+  /// It takes in a List of keys to retrieve from the cache and returns a Map of key-value pairs.
+  /// If an exception occurs during the process, it is caught and printed to the console.
+
+  static Future<Map<String, dynamic>> getMultiValues(List<String> keys) async {
+    Map<String, dynamic> results = {};
+
+    try {
+      for (final key in keys) {
+        final value = await get(key);
+        results[key] = value;
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+
+    return results;
+  }
+
   /// Retrieves the encrypted value associated with the given key from local storage using getString(),
   /// decodes it from base64, and returns the decoded value as an object of the specified data type.
   /// Returns null if the operation failed.
