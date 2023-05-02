@@ -79,7 +79,23 @@ await Valt.set('my_map', {'name': 'Alice', 'age': 25});
 final myMap = await Valt.get('my_map');
 
 ```
+## Store and Retrieve Multiple Values at Once Using `setMultiValues` and `getMultiValues`
+```
+// Set multiple key-value pairs
+await setMultiValues({
+  'name': 'Alice',
+  'age': 30,
+  'isStudent': false,
+});
 
+// Get the values of multiple keys
+Map<String, dynamic> values = await getMultiValues(['name', 'age', 'isStudent']);
+
+// Print the values
+print(values['name']); // Output: Alice
+print(values['age']); // Output: 30
+print(values['isStudent']); // Output: false
+```
 
 ```
 Note that all values are saved to local storage as encrypted strings. If an operation fails, the corresponding method will return null or false, depending on the method.

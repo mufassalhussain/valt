@@ -1,3 +1,12 @@
+## Version 0.0.5 (Release date: 02-05-2023)
+- Added support for batch saving and retrieving multiple key-value pairs using setMultiValues and getMultiValues methods respectively.
+- Enhanced error handling and added informative error messages for easier debugging.
+- Improved performance and optimized memory usage for more efficient data management.
+- Conducted comprehensive testing to ensure stability and compatibility across platforms.
+- Updated documentation with information on using the new setMultiValues and getMultiValues methods.
+- Fixed minor bugs and issues discovered during testing.
+
+
 ## Version 0.0.4+2 (Release date: 28-04-2023)
 - Fixed a bug that caused data loss when saving values.
 - Optimized storage efficiency, reducing the amount of storage space required by the library.
